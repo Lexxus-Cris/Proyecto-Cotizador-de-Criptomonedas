@@ -1,9 +1,19 @@
+import { Contenedor, Imagen, Heading } from "./styles";
+import image from './img/cryptomonedas.png';
 
 function App() {
   return (
-    <div className="App">
-      
-    </div>
+    <Contenedor>
+      <div className="">
+        <Imagen
+          src={image}
+          alt="Imagen criptomonedas"
+        />
+      </div>
+      <div className="">
+        <Heading>Cotiza criptomonedas al instante</Heading>
+      </div>
+    </Contenedor>
   );
 }
 

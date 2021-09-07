@@ -1,6 +1,8 @@
 import { Contenedor, Imagen, Heading } from "./styles";
 import image from './img/cryptomonedas.png';
 
+import Form from './components/Form/Form'
+
 function App() {
   return (
     <Contenedor>
@@ -12,6 +14,8 @@ function App() {
       </div>
       <div className="">
         <Heading>Cotiza criptomonedas al instante</Heading>
+
+        <Form />
       </div>
     </Contenedor>
   );

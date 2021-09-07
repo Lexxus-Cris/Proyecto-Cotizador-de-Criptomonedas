@@ -19,8 +19,14 @@ const Form = () => {
    // Utilizamos el custom hook
    const [moneda, Seleccionar ] = useMoneda('Elige tu moneda', '', MONEDAS);
 
+   const handleSubmit = e => {
+      e.preventDefault()
+   }
+
    return (
-      <form>
+      <form
+         onSubmit={handleSubmit}
+      >
          <Seleccionar />
          <Boton 
             type="submit"

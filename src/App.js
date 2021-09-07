@@ -1,7 +1,7 @@
 import { Contenedor, Imagen, Heading } from "./styles";
 import image from './img/cryptomonedas.png';
 
-import Form from './components/Form/Form'
+import Form from './components/Form/Form';
 
 function App() {
   return (

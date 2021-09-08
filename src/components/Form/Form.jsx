@@ -1,6 +1,7 @@
 import React from 'react';
+import useCriptomoneda from '../../hooks/useCriptomoneda';
 
-import useMoneda from '../../hooks/useMoneda/useMoneda';
+import useMoneda from '../../hooks/useMoneda';
 
 import { Boton } from './styles';
 
@@ -16,8 +17,11 @@ const Form = () => {
       { codigo: 'GBP', nombre: 'Libra Esterlina'}
    ]
 
-   // Utilizamos el custom hook
-   const [moneda, Seleccionar ] = useMoneda('Elige tu moneda', '', MONEDAS);
+   // Utilizamos el custom hook useMoneda
+   const [moneda, SeleccionarMoneda ] = useMoneda('Elige tu moneda', '', MONEDAS);
+
+   // Implementacion de useCriptomoneda
+   const [ criptomoneda, SeleccionarCripto ] = useCriptomoneda ('Elige la criptomoneda', '')
 
    const handleSubmit = e => {
       e.preventDefault()
@@ -27,7 +31,8 @@ const Form = () => {
       <form
          onSubmit={handleSubmit}
       >
-         <Seleccionar />
+         <SeleccionarMoneda />
+         <SeleccionarCripto />
          <Boton 
             type="submit"
          >Calcular</Boton>

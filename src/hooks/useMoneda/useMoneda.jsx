@@ -1,4 +1,5 @@
 import React, { Fragment, useState} from 'react'
+import { Label, Select } from './styles';
 
 const useMoneda = (label, initialState, Monedas) => {
    
@@ -14,13 +15,18 @@ const useMoneda = (label, initialState, Monedas) => {
 
    const Seleccionar = () => (
       <Fragment>
-         <label htmlFor="currency">{label}</label>
-         <select name="currency" id="currency" onChange={handleChange} value={moneda}>
+         <Label htmlFor="currency">{label}</Label>
+         <Select
+            name="currency"
+            id="currency"
+            onChange={handleChange}
+            value={moneda}
+         >
             <option value="">-- Elige una opcion --</option>
             {Monedas.map(moneda => (
                <option  key={moneda.codigo} value={moneda.codigo}>{moneda.nombre}</option>
             ))}
-         </select>
+         </Select>
       </Fragment>
    );
 

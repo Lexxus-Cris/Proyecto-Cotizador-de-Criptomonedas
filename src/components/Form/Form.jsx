@@ -1,6 +1,6 @@
 import React from 'react';
 
-import useMoneda from '../../hooks/useMoneda';
+import useMoneda from '../../hooks/useMoneda/useMoneda';
 
 import { Boton } from './styles';
 

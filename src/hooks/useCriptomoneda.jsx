@@ -3,6 +3,8 @@ import { Label, Select } from './styles';
 
 const useCriptomoneda = (label, initialState, Criptomonedas) => {
 
+   console.log(Criptomonedas);
+
    // State del custom Hook
 
    const [criptomoneda, setCriptomoneda] = useState(initialState);

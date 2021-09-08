@@ -8,21 +8,19 @@ const useCriptomoneda = (label, initialState, Criptomonedas) => {
    const [criptomoneda, setCriptomoneda] = useState(initialState);
 
    const handleChange = e => {
-      setCriptomoneda({
-         [e.target.name]: e.target.value
-      })
+      setCriptomoneda(e.target.value)
    }
 
    const SeleccionarCripto = () => (
       <Fragment>
-         <Label htmlFor="currency">{label}</Label>
+         <Label htmlFor="criptomoneda">{label}</Label>
          <Select
-            name="currency"
-            id="currency"
+            name="criptomoneda"
+            id="criptomoneda"
             onChange={handleChange}
             value={criptomoneda}
          >
-            <option value="">-- Elige una criptomoneda --</option>
+            <option value="">-- Seleccione una criptomoneda --</option>
             {Criptomonedas.map(criptomoneda => (
                <option key={criptomoneda.CoinInfo.Id} value={criptomoneda.CoinInfo.Name}>{criptomoneda.CoinInfo.FullName}</option>
             ))}

@@ -8,21 +8,19 @@ const useMoneda = (label, initialState, Monedas) => {
    const [moneda, setMoneda] = useState(initialState);
 
    const handleChange = e => {
-      setMoneda({
-         [e.target.name] : e.target.value
-      })
+      setMoneda(e.target.value)
    }
 
    const Seleccionar = () => (
       <Fragment>
-         <Label htmlFor="currency">{label}</Label>
+         <Label htmlFor="moneda">{label}</Label>
          <Select
-            name="currency"
-            id="currency"
+            name="moneda"
+            id="moneda"
             onChange={handleChange}
             value={moneda}
          >
-            <option value="">-- Elige una opcion --</option>
+            <option>-- Seleccione una moneda --</option>
             {Monedas.map(moneda => (
                <option  key={moneda.codigo} value={moneda.codigo}>{moneda.nombre}</option>
             ))}

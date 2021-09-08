@@ -5,8 +5,10 @@ import useCriptomoneda from '../../hooks/useCriptomoneda';
 import useMoneda from '../../hooks/useMoneda';
 
 import { Boton } from './styles';
+import Error from '../Error/Error';
 
-const Form = () => {
+
+const Form = ({guardarMoneda, guardarCriptomoneda}) => {
 
    // state para la validacion del form
    const [error, setError] = useState(false)
@@ -54,7 +56,8 @@ const Form = () => {
       setError(false);
 
       // Pasamos los datos al componenete principal
-
+      guardarMoneda(moneda);
+      guardarCriptomoneda(criptomoneda)
 
    }
 
@@ -62,7 +65,7 @@ const Form = () => {
       <form
          onSubmit={handleSubmit}
       >
-         {error ? 'Hay un error' : null}
+         {error ? <Error mensaje="todos los campos son obligatorios" /> : null}
          <SeleccionarMoneda />
          <SeleccionarCripto />
          <Boton 

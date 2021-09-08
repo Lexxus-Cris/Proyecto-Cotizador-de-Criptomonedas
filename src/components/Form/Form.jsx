@@ -8,6 +8,9 @@ import { Boton } from './styles';
 
 const Form = () => {
 
+   // state para la validacion del form
+   const [error, setError] = useState(false)
+
    // state del listado de criptomonedas
    const [listCripto, setListCripto] = useState([]);
 
@@ -27,25 +30,39 @@ const Form = () => {
    // Implementacion de useCriptomoneda
    const [ criptomoneda, SeleccionarCripto ] = useCriptomoneda ('Elige la criptomoneda', '', listCripto)
 
-   const handleSubmit = e => {
-      e.preventDefault()
-   }
-
+   
    // Ejecutar llamado a la API
    useEffect(() => {
       const consultarAPI = async () => {
          const API_URL = 'https://min-api.cryptocompare.com/data/top/mktcapfull?limit=10&tsym=USD';
          const response = await axios.get(API_URL);
-
+         
          setListCripto(response.data.Data)
       }
       consultarAPI()
    }, [])
+   
+   const handleSubmit = e => {
+      e.preventDefault();
+
+      // validar ambos campos
+      if (moneda === '' || criptomoneda === '') {
+         setError(true);
+         return;
+      }
+
+      setError(false);
+
+      // Pasamos los datos al componenete principal
+
+
+   }
 
    return (
       <form
          onSubmit={handleSubmit}
       >
+         {error ? 'Hay un error' : null}
          <SeleccionarMoneda />
          <SeleccionarCripto />
          <Boton 

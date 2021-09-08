@@ -3,8 +3,6 @@ import { Label, Select } from './styles';
 
 const useCriptomoneda = (label, initialState, Criptomonedas) => {
 
-   console.log(Criptomonedas);
-
    // State del custom Hook
 
    const [criptomoneda, setCriptomoneda] = useState(initialState);
@@ -24,10 +22,10 @@ const useCriptomoneda = (label, initialState, Criptomonedas) => {
             onChange={handleChange}
             value={criptomoneda}
          >
-            {/* <option value="">-- Elige una opcion --</option>
+            <option value="">-- Elige una criptomoneda --</option>
             {Criptomonedas.map(criptomoneda => (
-               <option key={criptomoneda.codigo} value={criptomoneda.codigo}>{criptomoneda.nombre}</option>
-            ))} */}
+               <option key={criptomoneda.CoinInfo.Id} value={criptomoneda.CoinInfo.Name}>{criptomoneda.CoinInfo.FullName}</option>
+            ))}
          </Select>
       </Fragment>
    );

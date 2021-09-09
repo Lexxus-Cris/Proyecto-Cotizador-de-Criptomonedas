@@ -5,7 +5,7 @@ export const Boton = styled.button`
    font-weight: bold;
    font-size: 20px;
    padding: 20px;
-   background: #66a2fe;
+   background: #66a2fe !important;
    border: none;
    width: 100%;
    border-radius: 10px;

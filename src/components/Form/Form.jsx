@@ -8,7 +8,7 @@ import { Boton } from './styles';
 import Error from '../Error/Error';
 
 
-const Form = ({guardarMoneda, guardarCriptomoneda}) => {
+const Form = ({guardarMoneda, guardarCriptomoneda, setModal}) => {
 
    // state para la validacion del form
    const [error, setError] = useState(false)
@@ -41,7 +41,7 @@ const Form = ({guardarMoneda, guardarCriptomoneda}) => {
          
          setListCripto(response.data.Data)
       }
-      consultarAPI()
+      consultarAPI();
    }, [])
    
    const handleSubmit = e => {
@@ -58,7 +58,10 @@ const Form = ({guardarMoneda, guardarCriptomoneda}) => {
       // Pasamos los datos al componenete principal
       guardarMoneda(moneda);
       guardarCriptomoneda(criptomoneda)
-
+      
+      setTimeout(() => {
+         setModal(true);
+      }, 2000);
    }
 
    return (
@@ -70,6 +73,7 @@ const Form = ({guardarMoneda, guardarCriptomoneda}) => {
          <SeleccionarCripto />
          <Boton 
             type="submit"
+            
          >Calcular</Boton>
          
       </form>
